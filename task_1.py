@@ -1,11 +1,14 @@
-from operator import index
-
-numbers = [2, -93, -2, 8, None, -44, -1, -85, -14, 90, -22, -90, -100, -8, 38, -92, -45, 67, 53, 25]
-
-# TODO заменить значение пропущенного элемента средним арифметическим
-index_of_none = numbers.index(None)
-sum_numbers = sum(num for num in numbers if num is not None)
-len_numbers = len(numbers)
-average = sum_numbers / len_numbers
-numbers[index_of_none] = average
-print("Измененный список:", numbers)
+money_capital = 20000  # Подушка безопасности
+salary = 5000  # Ежемесячная зарплата
+spend = 6000  # Траты за первый месяц
+increase = 0.05  # Ежемесячный рост цен
+months = 0 # Месяц
+# TODO Посчитайте количество  месяцев, которое можно протянуть без долгов
+while True:
+    pacxod = spend - salary
+    if pacxod > money_capital:
+        break
+    months += 1
+    money_capital -= pacxod
+    spend *= 1 + increase
+print("Количество месяцев, которое можно протянуть без долгов:", months)
